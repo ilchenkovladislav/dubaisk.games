@@ -2,6 +2,7 @@
 	"imports": {
 		"@biomejs/biome": "npm:@biomejs/biome@^1.9.4",
 		"axios": "npm:axios",
+		"iconv-lite": "npm:iconv-lite",
 		"cheerio": "https://esm.sh/cheerio@1.0.0-rc.12"
 	},
 	"nodeModulesDir": "auto"
