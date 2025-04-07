@@ -1,6 +1,13 @@
 import axios from "axios";
 import * as cheerio from "cheerio";
+import { drizzle } from "drizzle-orm/postgres-js";
 import iconv from "iconv-lite";
+import postgres from "postgres";
+import { gamesTable } from "./src/db/schema.ts";
+
+const connectionString = Deno.env.get("DATABASE_URL") ?? "";
+const client = postgres(connectionString, { prepare: false });
+const db = drizzle(client);
 
 export async function getGameOnline(id: number | string) {
 	const { data } = await axios.get(`https://steamcharts.com/app/${id}`);
@@ -44,7 +51,7 @@ function delay(ms: number) {
 
 export async function getOnlineFixGames() {
 	const games = [];
-	const maxPages = 5;
+	const maxPages = 74;
 
 	for (let index = 1; index <= maxPages; index++) {
 		const { data } = await axios.get(`https://online-fix.me/page/${index}`, {
@@ -57,7 +64,7 @@ export async function getOnlineFixGames() {
 			.toArray()
 			.map((el) => {
 				return {
-					link: $(el).find(".big-link").attr("href"),
+					link: $(el).find(".big-link").attr("href") ?? "",
 					name: extractName($(el).find(".title").text()),
 				};
 			});
@@ -70,4 +77,11 @@ export async function getOnlineFixGames() {
 	}
 
 	return games;
+}
+
+export async function addGame() {
+	const games = await getOnlineFixGames();
+
+	await db.insert(gamesTable).values(games);
+	console.log("New games created!");
 }
