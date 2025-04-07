@@ -2,8 +2,12 @@
 	"imports": {
 		"@biomejs/biome": "npm:@biomejs/biome@^1.9.4",
 		"axios": "npm:axios",
+		"drizzle-kit": "npm:drizzle-kit@^0.30.6",
+		"drizzle-orm": "npm:drizzle-orm@^0.41.0",
 		"iconv-lite": "npm:iconv-lite",
-		"cheerio": "https://esm.sh/cheerio@1.0.0-rc.12"
+		"cheerio": "https://esm.sh/cheerio@1.0.0-rc.12",
+		"postgres": "npm:postgres@^3.4.5",
+		"tsx": "npm:tsx@^4.19.3"
 	},
 	"nodeModulesDir": "auto"
 }
