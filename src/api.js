@@ -3,13 +3,13 @@ import * as cheerio from "cheerio";
 import { drizzle } from "drizzle-orm/postgres-js";
 import iconv from "iconv-lite";
 import postgres from "postgres";
-import { gamesTable } from "./src/db/schema.ts";
+import { gamesTable } from "./db/schema.js";
 
-const connectionString = Deno.env.get("DATABASE_URL") ?? "";
+const connectionString = process.env.DATABASE_URL;
 const client = postgres(connectionString, { prepare: false });
 const db = drizzle(client);
 
-export async function getGameOnline(id: number | string) {
+export async function getGameOnline(id) {
 	const { data } = await axios.get(`https://steamcharts.com/app/${id}`);
 	const $ = cheerio.load(data);
 
@@ -34,7 +34,7 @@ export async function getGameOnline(id: number | string) {
 	});
 }
 
-function extractName(title: string): string {
+function extractName(title) {
 	const networkPart = " по сети";
 
 	const name = title.trim();
@@ -45,7 +45,7 @@ function extractName(title: string): string {
 	return name;
 }
 
-function delay(ms: number) {
+function delay(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
