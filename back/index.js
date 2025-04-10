@@ -1,7 +1,9 @@
+import cors from "cors";
 import express from "express";
 import { getGameOnline, getOnlineFixGames } from "./src/api.js";
 
 const app = express();
+app.use(cors());
 const port = 3000;
 
 app.get("/online/:id", async (req, res) => {
