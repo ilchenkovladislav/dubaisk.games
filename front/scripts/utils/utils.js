@@ -17,6 +17,13 @@ export async function getCurrentTab() {
   try {
     const tabs = await chrome.tabs.query({})
     const steamTabs = tabs.filter((tab) => isValidPage(tab.url))
+
+    const activeTab = steamTabs.find((tab) => tab.active)
+
+    if (activeTab) {
+      return activeTab
+    }
+
     return steamTabs[steamTabs.length - 1]
   } catch (error) {
     console.error('Error getting current tab:', error)
