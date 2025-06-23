@@ -1,0 +1,322 @@
+:root {
+  --accent-color: #66c0f4;
+  --button-color: #27455c;
+  --back-color: #16202d;
+  --background-color: #1b2838;
+  --good-color: #beee11;
+  --bad-color: #f5465a;
+  --secondary-color: #acb2b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.button {
+  color: var(--accent-color);
+  text-decoration: none;
+  background-color: var(--button-color);
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  width: 100%;
+
+  &:hover {
+    background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+    color: #fff;
+  }
+}
+
+.root {
+  padding: 30px 0;
+  min-width: 450px;
+  background-color: var(--background-color);
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+#title {
+  text-align: center;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 0 25px;
+}
+
+.stats__title {
+  font-weight: normal;
+}
+
+.stats__list {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.stats__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: var(--secondary-color);
+}
+
+.stats__item span {
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+.stats__item .positive {
+  color: #beee11;
+}
+
+.stats__item .negative {
+  color: #f5465a;
+}
+
+.frees {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 0 25px;
+}
+
+.free {
+  width: 172px;
+}
+
+.free__wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.free__title {
+  font-size: 16px;
+}
+
+.free__label {
+  font-size: 14px;
+}
+.free__label--success {
+  color: var(--good-color);
+  display: none;
+}
+
+.free__label--loading {
+  color: var(--secondary-color);
+}
+
+.free__label--error {
+  color: var(--bad-color);
+  display: none;
+}
+
+.free__link {
+  margin-top: 10px;
+}
+
+.free__link--success {
+  display: none;
+}
+
+.market {
+  margin-top: 40px;
+}
+
+.market__wrapper {
+  display: flex;
+  align-items: baseline;
+  padding: 0 25px;
+  gap: 10px;
+}
+
+.market__link {
+  color: var(--accent-color);
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.market__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+  padding: 20px 30px;
+  background-color: var(--back-color);
+}
+
+.product {
+  position: relative;
+  display: grid;
+  justify-content: space-between;
+  align-items: baseline;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: min-content 1fr;
+  gap: 10px;
+
+  grid-template-areas:
+    'price sales'
+    'title title';
+}
+
+.product__price {
+  grid-area: price;
+  font-size: 16px;
+  color: var(--accent-color);
+}
+
+.product__sales {
+  grid-area: sales;
+  font-size: 14px;
+  color: var(--secondary-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-self: end;
+}
+
+.product__sales::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url('../assets/download.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  left: -15px;
+}
+
+.product__title {
+  grid-area: title;
+  font-size: 14px;
+  text-transform: lowercase;
+  display: -webkit-box;
+  overflow-wrap: break-word;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+
+  line-height: 1.3;
+}
+
+.product:hover .product__title {
+  color: var(--accent-color);
+}
+
+.product__link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+#gain span {
+  margin-left: auto;
+}
+
+#gain sup {
+  font-size: 10px;
+  align-self: flex-start;
+  margin-left: 5px;
+}
+
+/* Стили для скрола */
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-container {
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--background-color) var(--background-color);
+}
+
+/* WebKit */
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--background-color);
+  border-radius: 4px;
+  border: 2px solid var(--background-color);
+}
+
+/* Стили для скелетона */
+.skeleton-loader {
+  position: relative;
+  height: 80px;
+  background-color: transparent;
+}
+.skeleton-loader:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(var(--accent-color) 17px, transparent 0),
+    linear-gradient(var(--secondary-color) 12px, transparent 0),
+    linear-gradient(#aaaaaa 10px, transparent 0), linear-gradient(#aaaaaa 10px, transparent 0),
+    linear-gradient(#aaaaaa 10px, transparent 0), linear-gradient(transparent 0, transparent 0);
+  background-size:
+    58px 100%,
+    50px 17px,
+    40px 12px,
+    80px 10px,
+    100px 10px,
+    90px 10px,
+    100% 100%;
+  background-position:
+    -58px 0,
+    0px 0px,
+    76px 5px,
+    0px 39px,
+    0px 54px,
+    0px 69px,
+    0 0;
+  animation: skeleton-animation 2500ms infinite;
+}
+
+@keyframes skeleton-animation {
+  to {
+    background-position:
+      116px 0,
+      0px 0px,
+      76px 5px,
+      0px 39px,
+      0px 54px,
+      0px 69px,
+      0 0;
+  }
+}
