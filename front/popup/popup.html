@@ -8,92 +8,7 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <div class="root scroll-container">
-      <h2 id="title"></h2>
-
-      <div class="frees">
-        <div id="onlinefix" class="free">
-          <div class="free__wrapper">
-            <h3 class="free__title">OnlineFix</h3>
-            <p class="free__label free__label--success">есть на сайте</p>
-            <p class="free__label free__label--loading">загрузка</p>
-            <p class="free__label free__label--error">нет на сайте</p>
-          </div>
-          <a href="#" target="_blank" class="button free__link free__link--success"
-            >перейти к игре</a
-          >
-          <a
-            href="https://online-fix.me/"
-            target="_blank"
-            class="button free__link free__link--error"
-            >перейти на сайт</a
-          >
-        </div>
-
-        <div id="freetp" class="free">
-          <div class="free__wrapper">
-            <h3 class="free__title">FreeTP</h3>
-            <p class="free__label free__label--success">есть на сайте</p>
-            <p class="free__label free__label--loading">загрузка</p>
-            <p class="free__label free__label--error">нет на сайте</p>
-          </div>
-          <a href="#" class="button free__link free__link--success" target="_blank"
-            >перейти к игре</a
-          >
-          <a href="https://freetp.org/" target="_blank" class="button free__link free__link--error"
-            >перейти на сайт</a
-          >
-        </div>
-      </div>
-
-      <div id="ggsel" class="market">
-        <div class="market__wrapper">
-          <h3 class="market__title">GGSel</h3>
-          <a href="https://ggsel.net/" target="_blank" class="market__link">перейти на сайт</a>
-        </div>
-
-        <ul class="market__list">
-          <div class="skeleton-loader skeleton-loader--ggsel"></div>
-          <div class="skeleton-loader skeleton-loader--ggsel"></div>
-          <div class="skeleton-loader skeleton-loader--ggsel"></div>
-        </ul>
-      </div>
-
-      <div id="plati" class="market">
-        <div class="market__wrapper">
-          <h3 class="market__title">Plati.Market</h3>
-          <a href="https://plati.market/" target="_blank" class="market__link">перейти на сайт</a>
-        </div>
-
-        <ul class="market__list">
-          <div class="skeleton-loader skeleton-loader--plati"></div>
-          <div class="skeleton-loader skeleton-loader--plati"></div>
-          <div class="skeleton-loader skeleton-loader--plati"></div>
-        </ul>
-      </div>
-
-      <div class="stats">
-        <div class="stats__main">
-          <h3 class="stats__title">Общая статистика</h3>
-          <ul class="stats__list">
-            <li id="current_online" class="stats__item">сейчас онлайн <span></span></li>
-            <li id="max_online_today" class="stats__item">пик за 24 часа <span></span></li>
-            <li id="max_online_alltime" class="stats__item">пик за все время <span></span></li>
-          </ul>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="stats__month">
-          <h3 class="stats__title">Статистика за месяц</h3>
-          <ul class="stats__list">
-            <li id="avg_online_month" class="stats__item">средний онлайн <span></span></li>
-            <li id="gain" class="stats__item">изменение <span></span><sup></sup></li>
-            <li id="max_online_month" class="stats__item">пик онлайн <span></span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="root scroll-container"></div>
   </body>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -101,10 +16,8 @@
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet"
   />
+  <script src="../scripts/react.js" type="module"></script>
+  <script src="../scripts/react-dom.js" type="module"></script>
   <script src="../scripts/axios.min.js"></script>
-  <script src="../scripts/config.js" type="module"></script>
-  <script src="../scripts/utils/utils.js" type="module"></script>
-  <script src="../scripts/utils/ApiClient.js" type="module"></script>
-  <script src="../scripts/api.js" type="module"></script>
-  <script src="popup.js" type="module"></script>
+  <script src="../scripts/main.js" type="module"></script>
 </html>

@@ -1,4 +1,5 @@
 /* global chrome */
+/* global React */
 
 export function parseGameInfoFromUrl(url) {
   const match = url.match(/https:\/\/store\.steampowered\.com\/app\/(\d+)\/([^/]+)\//)
@@ -31,7 +32,24 @@ export async function getCurrentTab() {
   }
 }
 
+export async function getSteamTabs() {
+  if (typeof chrome === 'undefined' || !chrome.tabs) {
+    console.error('Chrome API is not available in this context')
+    return null
+  }
+  try {
+    const tabs = await chrome.tabs.query({})
+    const steamTabs = tabs.filter((tab) => isValidPage(tab.url))
+
+    return steamTabs
+  } catch (error) {
+    console.error('Error getting current tab:', error)
+    return null
+  }
+}
+
 export function formatNumber(number) {
+  if (!number) return ''
   return new Intl.NumberFormat('ru-RU').format(number)
 }
 
@@ -39,3 +57,5 @@ export function isValidPage(url) {
   const pattern = /^https:\/\/store\.steampowered\.com\/app\/\d+\/[^/]+\/?$/
   return pattern.test(url)
 }
+
+export const createEl = React.createElement
