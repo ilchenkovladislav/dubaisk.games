@@ -12,5 +12,19 @@
     "http://localhost:3000/",
     "http://127.0.0.1:3000/",
     "http://192.168.0.1:3000/"
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "scripts/react.js",
+        "scripts/react-dom.js",
+        "scripts/axios.min.js",
+        "scripts/components/App/App.js",
+        "content/content.js"
+      ],
+      "css": ["content/content.css"],
+      "matches": ["https://store.steampowered.com/wishlist/profiles/*"],
+      "type": "module"
+    }
   ]
 }

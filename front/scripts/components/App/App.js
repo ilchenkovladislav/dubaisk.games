@@ -6,7 +6,7 @@ import { Market } from '../Market/Market.js'
 import { Stats } from '../Stats/Stats.js'
 import { getSteamTabs, parseGameInfoFromUrl } from '../../utils/utils.js'
 
-export function App() {
+function useChromeTabs() {
   const [tabs, setTabs] = React.useState([])
   React.useEffect(() => {
     async function getChromeTabs() {
@@ -14,6 +14,12 @@ export function App() {
     }
     getChromeTabs()
   }, [])
+
+  return tabs
+}
+
+export function App() {
+  const tabs = useChromeTabs()
 
   if (!tabs.length) return 'Закрыто'
   const gamesInfo = tabs.map((tab) => parseGameInfoFromUrl(tab.url))
