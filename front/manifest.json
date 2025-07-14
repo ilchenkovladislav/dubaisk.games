@@ -25,5 +25,8 @@
       "resources": ["assets/download.svg"],
       "matches": ["https://store.steampowered.com/*"]
     }
-  ]
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
 }

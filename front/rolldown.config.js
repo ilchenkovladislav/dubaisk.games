@@ -1,5 +1,6 @@
 import { defineConfig } from 'rolldown'
 import copy from 'rollup-plugin-copy'
+import watch from '../../rollup-plugin-watch/dist/plugin.mjs'
 
 export default defineConfig([
   // Popup script
@@ -18,6 +19,10 @@ export default defineConfig([
       format: 'umd',
     },
     plugins: [
+      watch({
+        dir: 'src',
+        include: ['**/*.css', '**/*.html'],
+      }),
       copy({
         targets: [
           { src: 'assets/*', dest: 'build/assets' },
@@ -25,6 +30,8 @@ export default defineConfig([
           { src: './src/popup/popup.css', dest: 'build/popup' },
           { src: './src/content/content.css', dest: 'build/content' },
           { src: './src/styles/reset.css', dest: 'build/styles' },
+          { src: './src/scripts/background.js', dest: 'build' },
+          { src: './reload.js', dest: 'build' },
           { src: './manifest.json', dest: 'build' },
         ],
       }),
