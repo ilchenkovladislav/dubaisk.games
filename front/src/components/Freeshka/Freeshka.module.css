@@ -1,0 +1,33 @@
+.freeshka {
+  width: 172px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.label {
+  font-size: 14px;
+}
+.success {
+  color: var(--good-color);
+}
+
+.loading {
+  color: var(--secondary-color);
+}
+
+.error {
+  color: var(--bad-color);
+}
+
+.link {
+  margin-top: 10px;
+}

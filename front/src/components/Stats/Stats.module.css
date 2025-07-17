@@ -1,0 +1,48 @@
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 0 25px;
+}
+
+.title {
+  font-weight: normal;
+}
+
+.list {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: var(--secondary-color);
+}
+
+.item span {
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+.positive {
+  color: #beee11;
+}
+
+.negative {
+  color: #f5465a;
+}
+
+.change {
+  margin-left: auto;
+}
+
+.changePercentage {
+  font-size: 10px;
+  align-self: flex-start;
+  margin-left: 5px;
+}

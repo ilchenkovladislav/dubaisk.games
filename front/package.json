@@ -1,28 +1,26 @@
 {
-  "name": "front",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "dubaisk.games",
   "type": "module",
+  "version": "3.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf build",
-    "build": "pnpm clean && rolldown -c"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.12.4",
   "dependencies": {
     "axios": "^1.10.0",
-    "chokidar": "^4.0.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "rolldown": "1.0.0-beta.27",
-    "rollup-plugin-watch": "^1.0.5",
-    "ws": "^8.18.3"
+    "classnames": "^2.5.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "rollup-plugin-copy": "^3.5.0"
+    "@crxjs/vite-plugin": "^2.0.0",
+    "@types/chrome": "^0.0.313",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.2.0",
+    "vite-plugin-zip-pack": "^1.2.4"
   }
 }

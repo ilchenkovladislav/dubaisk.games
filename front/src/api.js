@@ -1,4 +1,4 @@
-import { apiClient } from './utils/ApiClient.js'
+import { apiClient } from "./utils/ApiClient"
 
 export async function getGameOnline(id) {
   try {
@@ -9,9 +9,11 @@ export async function getGameOnline(id) {
     console.error('Ошибка запроса:', err)
   }
 }
+
 export async function getGGSel(query) {
   try {
-    return await apiClient.get(`ggsel/${query}`)
+    const response = await apiClient.get(`ggsel/${query}`)
+    return response.data
   } catch (err) {
     console.error('Ошибка запроса:', err)
     return { success: false, error: err.message }
@@ -20,7 +22,8 @@ export async function getGGSel(query) {
 
 export async function getPlati(query) {
   try {
-    return await apiClient.get(`plati/${query}`)
+    const response = await apiClient.get(`plati/${query}`)
+    return response.data
   } catch (err) {
     console.error('Ошибка запроса:', err)
     return { success: false, error: err.message }
@@ -29,7 +32,8 @@ export async function getPlati(query) {
 
 export async function getOnlineFix(query) {
   try {
-    return await apiClient.get(`onlinefix/${query}`)
+    const response = await apiClient.get(`onlinefix/${query}`)
+    return response.data
   } catch (err) {
     if (err.response) {
       const { status, data } = err.response
@@ -49,7 +53,8 @@ export async function getOnlineFix(query) {
 
 export async function getFreetp(query) {
   try {
-    return await apiClient.get(`freetp/${query}`)
+    const response = await apiClient.get(`freetp/${query}`)
+    return response.data
   } catch (err) {
     if (err.response) {
       const { status, data } = err.response

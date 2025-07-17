@@ -13,7 +13,7 @@ export function parseGameInfoFromUrl(url) {
   return { id, title }
 }
 
-export async function getCurrentTab() {
+export async function getSteamTab() {
   if (typeof chrome === 'undefined' || !chrome.tabs) {
     console.error('Chrome API is not available in this context')
     return null
@@ -21,30 +21,13 @@ export async function getCurrentTab() {
   try {
     const tabs = await chrome.tabs.query({})
     const steamTabs = tabs.filter((tab) => isValidPage(tab.url))
-
     const activeTab = steamTabs.find((tab) => tab.active)
 
     if (activeTab) {
       return activeTab
     }
 
-    return steamTabs[steamTabs.length - 1]
-  } catch (error) {
-    console.error('Error getting current tab:', error)
-    return null
-  }
-}
-
-export async function getSteamTabs() {
-  if (typeof chrome === 'undefined' || !chrome.tabs) {
-    console.error('Chrome API is not available in this context')
-    return null
-  }
-  try {
-    const tabs = await chrome.tabs.query({})
-    const steamTabs = tabs.filter((tab) => isValidPage(tab.url))
-
-    return steamTabs
+    return steamTabs.at(-1)
   } catch (error) {
     console.error('Error getting current tab:', error)
     return null

@@ -1,0 +1,98 @@
+.market {
+  margin-top: 40px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: baseline;
+  padding: 0 25px;
+  gap: 10px;
+}
+
+.link {
+  color: var(--accent-color);
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+  padding: 20px 30px;
+  background-color: var(--back-color);
+}
+
+.product {
+  position: relative;
+  display: grid;
+  justify-content: space-between;
+  align-items: baseline;
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: min-content 1fr;
+  gap: 10px;
+
+  grid-template-areas:
+    'price sales'
+    'title title';
+}
+
+.price {
+  grid-area: price;
+  font-size: 16px;
+  color: var(--accent-color);
+}
+
+.sales {
+  grid-area: sales;
+  font-size: 14px;
+  color: var(--secondary-color);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-self: end;
+}
+
+.sales::before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-image: url('/src/assets/download.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  left: -15px;
+}
+
+.title {
+  grid-area: title;
+  font-size: 14px;
+  text-transform: lowercase;
+  display: -webkit-box;
+  overflow-wrap: break-word;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+
+  line-height: 1.3;
+}
+
+.product:hover .title {
+  color: var(--accent-color);
+}
+
+.productLink {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}

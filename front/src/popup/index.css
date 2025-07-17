@@ -1,0 +1,65 @@
+:root {
+  --accent-color: #66c0f4;
+  --button-color: #27455c;
+  --back-color: #16202d;
+  --background-color: #1b2838;
+  --good-color: #beee11;
+  --bad-color: #f5465a;
+  --secondary-color: #acb2b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.button {
+  color: var(--accent-color);
+  text-decoration: none;
+  background-color: var(--button-color);
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  width: 100%;
+
+  &:hover {
+    background: linear-gradient(-60deg, #417a9b 5%, #67c1f5 95%);
+    color: #fff;
+  }
+}
+
+#root {
+  padding: 30px 0;
+  min-width: 450px;
+  background-color: var(--background-color);
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Стили для скрола */
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-container {
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--background-color) var(--background-color);
+}
+
+/* WebKit */
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--background-color);
+  border-radius: 4px;
+  border: 2px solid var(--background-color);
+}
